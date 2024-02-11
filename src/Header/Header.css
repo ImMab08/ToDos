@@ -10,6 +10,7 @@
 
 .container-svg-header svg {
   transition: transform 0.3s ease; /* Transición para la rotación */
+  cursor: pointer;
 }
 
 .container-svg-header.open svg {
@@ -96,9 +97,52 @@ h2 {
   text-align: center; 
 }
 
+a {
+  text-decoration: none;
+}
+
+.container-header .container-svg-header svg {
+  cursor: pointer;
+}
+
+.menu .menu-container .close-menu {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .profile svg {
+    width: 80px;
+    height: 80px;
+  }
+  .profile .profile-data .profile-data_name {
+    font-size: 2.8rem;
+  }
+  .profile .profile-data .profile-data_watch {
+    font-size: 1.8rem;
+  }
+
+  .menu-container .close-menu {
+    width: 45px;
+    height: 45px;
+  }
+
+  .menu-content .menu-content_elements {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .container-header .container-svg-header svg{
+    width: 45px;
+    height: 45px;
+  }
+}
 
 @media screen and (min-width: 1024px ) {
-  .container-header {
-    display: none;
+  .menu.open {
+    width: 600px;
   }
 }

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useState, useEffect } from "react";
 import "./Header.css";
 
 function Header() {
@@ -9,8 +10,21 @@ function Header() {
   };
 
   const closeMenu = () => {
-    setMenuOpen(false); // Cierra el menú cuando se toca el ícono
+    setMenuOpen(false);
   };
+
+  const handleKeyPress = (event) => {
+    if (event.key === "Escape") {
+      closeMenu();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", handleKeyPress);
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
+  },);
 
   return (
     <>
@@ -30,10 +44,11 @@ function Header() {
             </svg>
             <div className="profile-data">
               <p className="profile-data_name">Franky Vargas</p>
-              <p className="profile-data_watch">Ver perfil</p>
+              <a href="#" className="profile-data_watch">Ver perfil</a>
             </div>
           </div>
           <svg
+            className="close-menu"
             onClick={closeMenu}
             width="30px"
             height="30px"
@@ -88,7 +103,7 @@ function Header() {
           </ul>
         </div>
 
-        <h2>Hecho con ♥️ para el mundo</h2> 
+        <h2>Hecho con 💚 para el mundo</h2> 
       </div>
 
       <header className="container-header">
