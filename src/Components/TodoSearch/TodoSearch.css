@@ -1,0 +1,53 @@
+.input-container {
+  margin-top: 10px;
+  width: 35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  border: 1px solid;
+  padding: 5px 0px;
+}
+  
+.input-container:focus-within {
+  border: 2px solid;
+}
+  
+input {
+  color: #fff;
+  background-color: #151515;
+  width: 90%;
+  padding: 3px 0px;
+  text-align: center;
+  font-size: 18px;
+  border: none;
+  outline: none
+}
+  
+.search-icon {
+  opacity: 0.4;
+  fill: #fff;
+  width: 20px;
+  height: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .input-container {
+    width: 60rem;
+  }
+
+  input {
+    font-size: 22px;
+  }
+
+}
+
+@media screen and (min-width: 1024px ) {
+  .input-container {
+    width: 55rem;
+  }
+
+  input {
+    font-size: 15px;
+  }
+}

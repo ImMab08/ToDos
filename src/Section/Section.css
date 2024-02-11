@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.section {
+  width: 100%;
+  height: 100%;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.section-title {
+  font-family: "Anton", sans-serif;
+  font-size: 8rem;
+  font-weight: 400;
+  background: -webkit-linear-gradient(45deg, #09009f, #00ff26 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+.title-tareas {
+  display: none;
+}
+
+.container-task {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 10px;
+}
+
+.container-progress {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.progress {
+  display: none;
+}
+
+.title-progress {
+  display: none;
+}
+
+.TodoSearch-container {
+  display: flex;
+  justify-content: center;
+}
+
+.TodoList-container {
+  overflow-y: auto;
+  width: 100%;
+  height: 390px;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #1d1d1d;
+  border-radius: 20px;
+}
+
+.TodoCounter-container {
+  margin-top: 10px;
+}
+
+.TodoList-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.TodoList-container::-webkit-scrollbar-thumb {
+  background-color: #4e4e4e;
+  border-radius: 100px;
+}
+
+.TodoList-container::-webkit-scrollbar-track {
+  background-color: #151515;
+}
+
+@media screen and (min-width: 768px) {
+  .container-task {
+    padding: 0px 30px;
+  }
+  
+  .section-title {
+    font-size: 12vw;
+  }
+
+  .TodoList-container {
+    height: 525px;  
+  }
+
+  .TodoCounter-container {
+    margin-top: 40px;
+  }
+}
+
+@media screen and (min-width: 1024px ) {
+  .section {
+    margin: 0;
+  }
+  
+  .container-main {
+    flex-direction: row;
+  }
+
+  .section-title {
+    font-size: 80px;
+  }
+
+  .TodoList-container {
+    height: 315px;  
+    margin-top: 15px;
+  }
+
+  .container-task {
+    width: 50%;
+  }
+
+  .title-tareas {
+    display: block;
+    font-size: 25px;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .container-progress {
+    display: flex;
+    width: 50%;
+    height: auto;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0px;
+  }
+  
+  .title-progress {
+    display: block;
+    font-size: 25px;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .progress {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .container-progress {
+    margin: 0;
+    width: 50%;
+  }
+}
