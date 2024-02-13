@@ -10,7 +10,7 @@ function TodoCounter ({ completed, total}) {
       </div>
 
       <div className='counter'>
-          <p className=''>Pendientes:</p>
+          <p className=''>Total:</p>
           <span> {total}</span>
       </div>
     </div>

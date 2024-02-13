@@ -9,20 +9,53 @@ import React from "react";
 
 const defaultTodos = [
   { text: "Cortar cebolla", completed: true },
-  { text: "Tomar curso React", completed: false },
+  { text: "Todasdddd React", completed: false },
+  { text: "xasdlorona", completed: true },
+  { text: "xdsssddddd", completed: false },
+  { text: "TomaasdasReact", completed: false },
+  { text: "Lladsasda la llorona", completed: true },
+  { text: "xdddddddddddd", completed: true },
+  { text: "Tomar curso React", completed: true },
   { text: "Llorar con la llorona", completed: true },
-  { text: "xdddddddddddd", completed: false },
-  { text: "Tomar curso React", completed: false },
-  { text: "Llorar con la llorona", completed: true },
-  { text: "xdddddddddddd", completed: false },
-  { text: "Tomar curso React", completed: false },
-  { text: "Llorar con la llorona", completed: true },
-  { text: "xdddddddddddd", completed: false },
+  { text: "xddddddwwwddddddd", completed: true },
+  { text: "xddsadddddddd", completed: true },
+  { text: "lorem", completed: true },
 ];
 
 function Section() {
+  const [todos, setTodos] = React.useState(defaultTodos);
+
+  const [searchValue, setSearchValue] = React.useState("");
+
+  const searchedTodos = todos.filter(
+    (todo) => {
+      const todoText = todo.text.toLowerCase();
+      const searchText = searchValue.toLocaleLowerCase();
+
+      return todoText.includes(searchText);
+    }
+  );
+
+  const completedTodos = todos.filter (todo => !!todo.completed).length;
+  const totalTodos = todos.length;
+
+  const completeTodos = (text) => {
+    const newTodos = [...todos];
+    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
+
+    newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
+    setTodos(newTodos);
+  }
+  const deleteTodos = (text) => {
+    const newTodos = [...todos];
+    const todoIndex = newTodos.findIndex((todo) => todo.text === text);
+
+    newTodos.splice(todoIndex, 1);
+    setTodos(newTodos);
+  }
+
   return (
-    <React.Fragment>
+    <>
       <section className="section">
         <h1 className="section-title">ToDo's</h1>
 
@@ -30,16 +63,21 @@ function Section() {
           <div className="container-task">
             <h2 className="title-tareas">Tareas</h2>
             <div className="TodoSearch-container">
-              <TodoSearch />
+              <TodoSearch 
+                searchValue = {searchValue}
+                setSearchValue = {setSearchValue}
+              />
             </div>
 
             <div className="TodoList-container">
               <TodoList>
-                {defaultTodos.map((todo) => (
+                {searchedTodos.map((todo) => (
                   <TodoItem
                     key={todo.text}
                     text={todo.text}
                     completed={todo.completed}
+                    onComplete = {() => completeTodos(todo.text)}
+                    onDelete = {() => deleteTodos(todo.text)}
                   />
                 ))}
               </TodoList>
@@ -53,8 +91,8 @@ function Section() {
             </div>
             <div className="data-progress">
               <TodoCounter 
-                  completed={8} 
-                  total={16} 
+                  completed={completedTodos} 
+                  total={totalTodos} 
                   />
             </div>
           </div>
@@ -65,7 +103,7 @@ function Section() {
           <CreateTodoButton />
         </div>
       </section>
-    </React.Fragment>
+    </>
   );
 }
 
